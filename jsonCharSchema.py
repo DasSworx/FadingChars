@@ -67,8 +67,83 @@ jsonCharSchema = {
             },
             "required": ["Psi", "Urge", "Theurgy", "Hubris"],
             "additionalProperties": False
+        },
+        "characteristics": {
+            "type": "object",
+            "properties": {
+                "Body": {
+                    "type": "object",
+                    "properties": {
+                        "Strength": {"type": "integer"},
+                        "Dexterity": {"type": "integer"},
+                        "Endurance": {"type": "integer"},
+                    },
+                    "requirements": ["Strength", "Dexterity", "Endurance"],
+                    "additionalProperties": False
+                },
+                "Mind": {
+                    "type": "object",
+                    "properties": {
+                        "Wits": {"type": "integer"},
+                        "Perception": {"type": "integer"},
+                        "Will": {"type": "integer"},
+                    },
+                    "requirements": ["Wits", "Perception", "Will"],
+                    "additionalProperties": False
+                },
+                "Spirit": {
+                    "type": "object",
+                    "properties": {
+                        "Presence": {"type": "integer"},
+                        "Intuition": {"type": "integer"},
+                        "Faith": {"type": "integer"},
+                    },
+                    "requirements": ["Presence", "Intuition", "Faith"],
+                    "additionalProperties": False
+                }
+            },
+            "required": ["Body", "Mind", "Spirit"],
+            "additionalProperties": False
+        },
+        "durability": {
+            "type": "object",
+            "properties": {
+                "Resistances": {
+                    "type": "object",
+                    "properties": {
+                        "Body": {"type": "integer"},
+                        "Mind": {"type": "integer"},
+                        "Spirit": {"type": "integer"}
+                    },
+                    "required": ["Body", "Mind", "Spirit"],
+                    "additionalProperties": False
+                },
+                "Armor": {
+                    "type": "object",
+                    "properties": {
+                        "Model": {"type": "string"},
+                        "Value": {"type": "integer"}
+                    },
+                    "required": ["Model","Value"]
+                },
+                "E-Shield": {
+                    "type": "object",
+                    "properties": {
+                        "Model": {"type": "string"},
+                        "Lower_Threshold": {"type": "integer"},
+                        "Upper_Threshold": {"type": "integer"},
+                        "Hits": {"type": "integer"}
+                    },
+                    "required": ["Model", "Lower_Threshold", "Upper_Threshold", "Hits"],
+                    "additionalProperties": False
+                },
+                "Vitality": {"type": "integer"},
+                "Revivals": {"type": "integer"}
+            },
+            "required": ["Resistances", "Armor", "E-Shield", "Vitality", "Revivals"],
+            "additionalProperties": False
         }
     },
-    "required": ["header", "overview", "skills", "occult"],
+    "required": ["header", "overview", "skills", "occult", "characteristics", "durability"],
     "additionalProperties": False
 }

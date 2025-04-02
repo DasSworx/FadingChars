@@ -42,5 +42,42 @@
 		"Urge": 0,
 		"Theurgy": 0,
 		"Hubris": 0
-	}
+	},
+    "characteristics": {
+      "Body": {
+        "Strength": 3,
+        "Dexterity": 3,
+        "Endurance": 3
+      },
+      "Mind": {
+        "Wits": 3,
+        "Perception": 3,
+        "Will": 3
+      },
+      "Spirit": {
+        "Presence": 3,
+        "Intuition": 3,
+        "Faith": 3
+      }
+    },
+      "durability": {
+          "Resistances": {
+              "Body": 0,
+              "Mind": 0,
+              "Spirit": 0
+          },
+          "Armor": {
+              "Model": "",
+              "Value": 0
+          },
+          "E-Shield": {
+              "Model": "",
+              "Lower_Threshold": 0,
+              "Upper_Threshold": 0,
+              "Hits": 0
+          },
+          "Vitality": 0,
+          "Revivals": 1
+      }
+
 }

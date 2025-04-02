@@ -4,7 +4,7 @@ import json
 
 import jsonCharSchema
 
-with open("C:/Users/Jesus/Documents/Rollenspiele/Fading Suns/Characters/TestChar.json", "r") as file:
+with open("./Src/BlankChar.json", "r") as file:
     testChar = json.load(file)
 
 try:
