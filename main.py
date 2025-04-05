@@ -2,6 +2,6 @@ import editCharJson, jsonValidator
 from editCharJson import FadingChar
 
 newChar = FadingChar("./src/BlankChar.json")
-newChar.setProperty("header.Name", "Steve")
+newChar.setProperty("header.Name", "")
 print(newChar.char)
-print(newChar.getProperty("header.Name"))
+newChar.saveChanges()

@@ -4,6 +4,7 @@ from jsonschema import validate, ValidationError
 
 class FadingChar:
     def __init__(self, pathToCharFile: str):
+        self.pathToCharFile = pathToCharFile
         with open(pathToCharFile, "r") as charFile:
             self.char = json.load(charFile)
 
@@ -41,3 +42,6 @@ class FadingChar:
         if self.charIsValid("./src/jsonCharSchema.json"):
             print(f"Property {nameOfProperty} was set to {valueOfProperty}")
 
+    def saveChanges(self):
+        with open(self.pathToCharFile, "w") as file:
+            json.dump(self.char, file, indent=4)
