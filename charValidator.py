@@ -4,11 +4,21 @@ import json
 
 import jsonCharSchema
 
-with open("./Src/BlankChar.json", "r") as file:
-    testChar = json.load(file)
+def jsonCharIsValid(pathToChar) -> bool:
 
-try:
-    validate(instance=testChar, schema=jSchema.jsonCharSchema)
-    print("JSON is valid")
-except ValidationError as e:
-    print("JSON validation error:", e.message)
+    try:
+        with open(pathToChar, "r") as file:
+            testChar = json.load(file)
+    except FileNotFoundError as e:
+        print("File could not be opened:", e.filename)
+        return False
+
+    try:
+        validate(instance=testChar, schema=jSchema.jsonCharSchema)
+        print("JSON is valid")
+        return True
+    except ValidationError as e:
+        print("JSON validation error:", e.message)
+        return False
+
+jsonCharIsValid("./src/BlankChar.json")

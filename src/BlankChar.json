@@ -78,6 +78,17 @@
           },
           "Vitality": 0,
           "Revivals": 1
-      }
-
+      },
+      "actions": [
+      ],
+      "vp bank": {
+          "Capacity": 5
+      },
+      "surge": {
+        "Rating": 0,
+        "Number": 0
+      },
+      "perks": [],
+      "capabilities": [],
+      "birthrights": []
 }

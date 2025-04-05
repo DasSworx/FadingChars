@@ -2,6 +2,7 @@ from jsonschema import validate, ValidationError
 
 
 jsonCharSchema = {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
     "type": "object",
     "properties": {
         "header": {
@@ -142,8 +143,51 @@ jsonCharSchema = {
             },
             "required": ["Resistances", "Armor", "E-Shield", "Vitality", "Revivals"],
             "additionalProperties": False
+        },
+        "actions": {
+            "type": "array",
+            "action": {
+                "type": "object",
+                "properties": {
+                    "Name": {"type": "string"},
+                    "Goal": {"type": "integer"},
+                    "Impact": {"type": "string"}
+                },
+                "required": ["Name", "Goal"],
+                "additionalProperties": False
+            }
+        },
+        "vp bank": {
+            "type": "object",
+            "properties": {
+                "Capacity": {"type": "integer"}
+            },
+        "required": ["Capacity"],
+        "additionalProperties": False
+        },
+        "surge": {
+            "type": "object",
+            "properties": {
+                "Rating": {"type": "integer"},
+                "Number": {"type": "integer"}
+            },
+        "required": ["Rating", "Number"],
+        "additionalProperties": False
+        },
+        "perks": {
+            "type": "array",
+            "item": {"type": "string"}
+        },
+        "capabilities": {
+            "type": "array",
+            "item": {"type": "string"}
+        },
+        "birthrights": {
+            "type": "array",
+            "item": {"type": "string"}
         }
     },
-    "required": ["header", "overview", "skills", "occult", "characteristics", "durability"],
+    "required": ["header", "overview", "skills", "occult", "characteristics",
+                 "durability", "vp bank", "surge", "perks"],
     "additionalProperties": False
 }
