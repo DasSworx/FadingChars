@@ -1,7 +1,4 @@
-from jsonschema import validate, ValidationError
-
-
-jsonCharSchema = {
+{
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "type": "object",
     "properties": {
@@ -13,7 +10,7 @@ jsonCharSchema = {
                 "Species": {"type": "string"}
             },
             "required": ["Name", "Rank", "Species"],
-            "additionalProperties": False
+            "additionalProperties": false
         },
         "overview": {
             "type": "object",
@@ -23,7 +20,7 @@ jsonCharSchema = {
                 "Level": {"type": "integer"}
             },
             "required": ["Class", "Faction", "Level"],
-            "additionalProperties": False
+            "additionalProperties": false
         },
         "skills": {
             "type": "object",
@@ -56,7 +53,7 @@ jsonCharSchema = {
                 "Vigor": {"type": "integer"}
             },
             "required": ["Academia", "Alchemy", "Animalia", "Arts", "Charm", "Crafts", "Disguise", "Drive", "Empathy", "Fight", "Focus", "Impress", "Interface", "Intrusion", "Knavery", "Melee", "Observe", "Perform", "Pilot", "Remedy", "Shoot", "Sleight of Hand", "Sneak", "Survival", "Tech Redemption", "Vigor"],
-            "additionalProperties": False
+            "additionalProperties": false
         },
         "occult": {
             "type": "object",
@@ -67,7 +64,7 @@ jsonCharSchema = {
                 "Hubris": {"type": "integer"}
             },
             "required": ["Psi", "Urge", "Theurgy", "Hubris"],
-            "additionalProperties": False
+            "additionalProperties": false
         },
         "characteristics": {
             "type": "object",
@@ -77,34 +74,34 @@ jsonCharSchema = {
                     "properties": {
                         "Strength": {"type": "integer"},
                         "Dexterity": {"type": "integer"},
-                        "Endurance": {"type": "integer"},
+                        "Endurance": {"type": "integer"}
                     },
                     "requirements": ["Strength", "Dexterity", "Endurance"],
-                    "additionalProperties": False
+                    "additionalProperties": false
                 },
                 "Mind": {
                     "type": "object",
                     "properties": {
                         "Wits": {"type": "integer"},
                         "Perception": {"type": "integer"},
-                        "Will": {"type": "integer"},
+                        "Will": {"type": "integer"}
                     },
                     "requirements": ["Wits", "Perception", "Will"],
-                    "additionalProperties": False
+                    "additionalProperties": false
                 },
                 "Spirit": {
                     "type": "object",
                     "properties": {
                         "Presence": {"type": "integer"},
                         "Intuition": {"type": "integer"},
-                        "Faith": {"type": "integer"},
+                        "Faith": {"type": "integer"}
                     },
                     "requirements": ["Presence", "Intuition", "Faith"],
-                    "additionalProperties": False
+                    "additionalProperties": false
                 }
             },
             "required": ["Body", "Mind", "Spirit"],
-            "additionalProperties": False
+            "additionalProperties": false
         },
         "durability": {
             "type": "object",
@@ -117,7 +114,7 @@ jsonCharSchema = {
                         "Spirit": {"type": "integer"}
                     },
                     "required": ["Body", "Mind", "Spirit"],
-                    "additionalProperties": False
+                    "additionalProperties": false
                 },
                 "Armor": {
                     "type": "object",
@@ -136,13 +133,13 @@ jsonCharSchema = {
                         "Hits": {"type": "integer"}
                     },
                     "required": ["Model", "Lower_Threshold", "Upper_Threshold", "Hits"],
-                    "additionalProperties": False
+                    "additionalProperties": false
                 },
                 "Vitality": {"type": "integer"},
                 "Revivals": {"type": "integer"}
             },
             "required": ["Resistances", "Armor", "E-Shield", "Vitality", "Revivals"],
-            "additionalProperties": False
+            "additionalProperties": false
         },
         "actions": {
             "type": "array",
@@ -154,7 +151,7 @@ jsonCharSchema = {
                     "Impact": {"type": "string"}
                 },
                 "required": ["Name", "Goal"],
-                "additionalProperties": False
+                "additionalProperties": false
             }
         },
         "vp bank": {
@@ -163,7 +160,7 @@ jsonCharSchema = {
                 "Capacity": {"type": "integer"}
             },
         "required": ["Capacity"],
-        "additionalProperties": False
+        "additionalProperties": false
         },
         "surge": {
             "type": "object",
@@ -172,7 +169,7 @@ jsonCharSchema = {
                 "Number": {"type": "integer"}
             },
         "required": ["Rating", "Number"],
-        "additionalProperties": False
+        "additionalProperties": false
         },
         "perks": {
             "type": "array",
@@ -189,5 +186,5 @@ jsonCharSchema = {
     },
     "required": ["header", "overview", "skills", "occult", "characteristics",
                  "durability", "vp bank", "surge", "perks"],
-    "additionalProperties": False
+    "additionalProperties": false
 }

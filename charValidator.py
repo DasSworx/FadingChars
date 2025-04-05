@@ -1,24 +1,36 @@
 from jsonschema import validate, ValidationError
-import jsonCharSchema as jSchema
 import json
+import os
 
-import jsonCharSchema
+def jsonCharIsValid(pathToChar, charSchema) -> bool:
 
-def jsonCharIsValid(pathToChar) -> bool:
+    if not os.path.exists(pathToChar):
+        print("The pathToChar does not exist")
+        return False
+    if not (os.path.exists(charSchema)):
+        print("The charSchema does not exist")
+        return False
 
     try:
         with open(pathToChar, "r") as file:
             testChar = json.load(file)
-    except FileNotFoundError as e:
-        print("File could not be opened:", e.filename)
+    except json.JSONDecodeError as e:
+        print("File could not be opened:", e)
         return False
 
     try:
-        validate(instance=testChar, schema=jSchema.jsonCharSchema)
+        with open(charSchema, "r") as schema:
+            jsonCharSchema = json.load(schema)
+    except json.JSONDecodeError as e:
+        print("decode error: ", e)
+
+
+    try:
+        validate(instance = testChar, schema = jsonCharSchema)
         print("JSON is valid")
         return True
     except ValidationError as e:
         print("JSON validation error:", e.message)
         return False
 
-jsonCharIsValid("./src/BlankChar.json")
+jsonCharIsValid("./src/BlankChar.json", "./src/jsonCharSchema.json")
